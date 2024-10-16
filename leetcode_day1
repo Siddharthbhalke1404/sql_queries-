@@ -1,0 +1,32 @@
+CREATING NEW DATBASE 'leetcode'
+create database leetcode;
+
+CREATING TWO TABLES 1) PERSON TABLE 2)ADDRESS TABLE
+create table if not exists person(person_id int,firstName varchar(255),lastName varchar(255));
+create table if not exists address(address_id int,person_id int,city varchar(255),state varchar(255));
+
+INSERTING VALUES IN BOTH TABLES
+insert into person(person_id,firstName,lastName) values(1,'siddharth','bhalke');
+insert into person(person_id,firstName,lastName) values(2,'abhishek','tamang');
+
+insert into address(address_id,person_id,city,state) values(1,2,'pune','maharashtra');
+insert into address(address_id,person_id,city,state) values(2,3,'daman','gujrat');
+
+select * from person;
+select * from address;
+
+QUESTION
+WRTIE AN SQL QUERY TO REPORT THE FIRSTNAME, LASTNAME,CITY & STATE OF EACH IN THE PERSON TABLE,
+IF THE ADDRESS OF PERSON_ID IS NOT PRESENT IN THE ADDRESS TABLE RETURN NULL
+
+ANSWER
+select p.firstName,p.lastName,a.city,a.state
+from person as p
+left join address as a
+on p.person_id=a.person_id;
+
+OUTPUT
+	firstName	lastName	city	state
+	abhishek	tamang	    pune	maharashtra
+	siddharth	bhalke		null    null
+ 
