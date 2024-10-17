@@ -9,9 +9,9 @@ insert into employee(id,name,salary,manager_id) values(4,'suraj',90000, null);
 
 select * from employee;
 --employee table--
-	id	 name	     salary 	  manager_id
-	1	  siddharth	 70000	     3
-	2	  abhishek	 80000	     4
+	id	name	     salary 	  manager_id
+	1	siddharth    70000	     3
+	2	abhishek     80000	     4
 	3 	kunal	     60000	    null
 	4 	suraj	     90000	    null
 
