@@ -1,0 +1,29 @@
+CREATING TABLES 1) EMPLOYEE TABLE 
+create table employee(id int,name varchar(255),salary int,manager_id int);
+
+INSERTING VALUES
+insert into employee(id,name,salary,manager_id) values(1,'siddharth',70000,3);
+insert into employee(id,name,salary,manager_id) values(2,'abhishek',80000,4);
+insert into employee(id,name,salary,manager_id) values(3,'kunal',60000, null);
+insert into employee(id,name,salary,manager_id) values(4,'suraj',90000, null);
+
+select * from employee;
+--employee table--
+	id	 name	     salary 	  manager_id
+	1	  siddharth	 70000	     3
+	2	  abhishek	 80000	     4
+	3 	kunal	     60000	    null
+	4 	suraj	     90000	    null
+
+QUESTION
+WRITE A SQL QUERY TO FIND THE EMPLOYEES WHO EARNS FOR THAN THEIR MANAGER IN ANY ORDER
+
+ANSWER
+select e1.name
+from employee e1
+join employee e2
+on e1.manager_id=e2.id
+where e1.salary>e2.salary;
+
+--result--
+siddharth
