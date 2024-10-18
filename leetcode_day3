@@ -1,0 +1,28 @@
+CREATING TABLE PERSON TABLE 
+create table email(id int,email varchar(255));
+
+INSERTING VALUES
+insert into email(id,email) values(1,'sid@gmail.com');
+insert into email(id,email) values(2,'k@gmail.com');
+insert into email(id,email) values(3,'k@gmail.com');
+
+TABLE
+select* from email;
+
+ID   email
+1	  sid@gmail.com
+2	  k@gmail.com
+3  	k@gmail.com
+
+QUESTION
+Write a SQL query to report all the duplicate emails
+
+ANSWER
+select email
+from email
+group by email
+having count(email)>1;
+
+OUTPUT-
+email
+k@gmail.com
