@@ -1,0 +1,56 @@
+CREATING TWO TABLES 1) CUSTOMER TABLE 2) ORDER TABLE
+create table customer_table(id int,name varchar(255));
+create table order_table(id int,customer_id int);
+
+INSERTING VALUES IN CUSTOMER TABLES
+insert into customer_table(id,name) values(1,'siddharth');
+insert into customer_table(id,name) values(2,'kunal');
+insert into customer_table(id,name) values(3,'omkar');
+insert into customer_table(id,name) values(4,'tammy');
+
+INSERTING VALUES IN ORDER TABLES
+insert into order_table(id,customer_id) values(1,3);
+insert into order_table(id,customer_id) values(2,1);
+
+select * from customer_table;
+----------------
+id      name
+----------------
+1	   siddharth
+2	   kunal
+3	   omkar
+4	   tammy
+
+select * from order_table;
+-----------------
+id   customer_id
+----------------
+1	     3
+2	     1
+
+QUESTION
+write an SQL query that reaturns all the customer who has not order anything
+
+ANSWER
+SELECT c.name AS Customer
+FROM customer_table c
+LEFT JOIN order_table o
+ON c.id=o.customer_id
+where o.id IS NULL;
+
+ALSO
+
+SELECT c.name AS Customer
+FROM customer_table c
+WHERE c.id NOT IN
+(SELECT c.id 
+FROM customer_table c
+INNER JOIN order_table o
+ON c.id=o.customer_id);
+
+OUTPUT
+----------
+Customer
+----------
+kunal
+tammy
