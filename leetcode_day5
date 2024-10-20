@@ -14,13 +14,13 @@ SELECT * FROM cinema;
 ------------------
 seat_id      free
 ------------------
-  1           	1
-  2	            0
-  3	            1
-  4	            1
-  5	            1
-  6	            1
-  7	            0
+  1           1
+  2	          0
+  3	          1
+  4	          1
+  5	          1
+  6	          1
+  7	          0
 
 QUESTION
 write an SQL query to report all the consecutive available free seats(free=1, Not free=0)
