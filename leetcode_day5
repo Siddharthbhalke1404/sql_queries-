@@ -1,0 +1,44 @@
+CREATEING CINEMA TABLE
+CREATE TABLE cinema(seat_id int,free int);
+
+INSERTING VALUES IN CINEMA
+INSERT INTO cinema(seat_id,free) VALUES(1,1);
+INSERT INTO cinema(seat_id,free) VALUES(2,0);
+INSERT INTO cinema(seat_id,free) VALUES(3,1);
+INSERT INTO cinema(seat_id,free) VALUES(4,1);
+INSERT INTO cinema(seat_id,free) VALUES(5,1);
+INSERT INTO cinema(seat_id,free) VALUES(6,1);
+INSERT INTO cinema(seat_id,free) VALUES(7,0);
+
+SELECT * FROM cinema;
+------------------
+seat_id      free
+------------------
+  1           	1
+  2	            0
+  3	            1
+  4	            1
+  5	            1
+  6	            1
+  7	            0
+
+QUESTION
+write an SQL query to report all the consecutive available free seats(free=1, Not free=0)
+
+ANSWER
+SELECT W.seat_id
+FROM(SELECT *,LEAD(free) OVER(ORDER BY seat_id) AS nextSeat,LAG(free) OVER(ORDER BY seat_id) AS prevSeat
+FROM cinema) AS W
+WHERE W.free=1 AND W.nextSeat=1
+OR W.free=1 ANd prevSeat=1
+ORDER BY seat_id;
+
+OUTPUT
+---------
+seat_id
+---------
+   3
+   4
+   5
+   6
+
