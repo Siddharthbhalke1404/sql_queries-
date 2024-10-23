@@ -1,0 +1,50 @@
+CREATING TABLE  EMPLOYEE AND BONUS TABLE
+CREATE TABLE bonus_employee(emp_id int,name varchar(255),supervisor varchar(255),salary int);
+CREATE TABLE Bonus_table(emp_id int,bonus varchar(255));
+
+INSERTING VALUES IN EMPLOYEE TABLE
+INSERT INTO bonus_employee(emp_id,name,supervisor,salary) VALUES(3,'Brad',NULL,4000);
+INSERT INTO bonus_employee(emp_id,name,supervisor,salary) VALUES(1,'John',3,1000);
+INSERT INTO bonus_employee(emp_id,name,supervisor,salary) VALUES(2,'Dan',3,2000);
+INSERT INTO bonus_employee(emp_id,name,supervisor,salary) VALUES(4,'Thomas',3,4000);
+
+INSERTING VALUES IN BONUS TABLE
+INSERT INTO Bonus_table(emp_id,bonus) VALUES(2,500);
+INSERT INTO Bonus_table(emp_id,bonus) VALUES(4,1000);
+
+SELECT * FROM bonus_employee;
+----------------------------------------
+emp_id | name | supervisor | salary
+----------------------------------------
+3	   | Brad  |	null	 |  4000
+1	   | John  |	3	     |  1000
+2	   | Dan   |	3	     |  2000
+4	   | Thomas|  3	     |  4000
+
+SELECT * FROM Bonus_table;
+-------------------
+emp_id |  bonus
+-------------------
+2	  |   500
+4	  |   1000
+
+QUESTION
+Write an SQL query to report the name and bonus amount of each employee less than 1000
+
+ANSWER
+SELECT e.name,b.bonus
+FROM bonus_employee AS e
+LEFT JOIN Bonus_table AS b
+ON e.emp_id=b.emp_id
+WHERE b.bonus < 1000 
+OR b.bonus IS NULL;
+
+OUTPUT
+---------------
+name  |   bonus
+---------------
+Brad  |  null
+John  |	 null
+Dan	  |  500
+
+
