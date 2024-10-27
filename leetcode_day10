@@ -15,17 +15,17 @@ INSERT INTO course(student,class) VALUES('I','Math');
 DISPLAYING THE TABLE
 SELECT * FROM course;
 ------------------
-student    class
+student  class
 ------------------
-A			     Math
-B			     English
-C			     Math
-D			     Biology
-E			     Math
-F			     Computer
-G			     Math
-H			     Math
-I		       Math
+A			   Math
+B			   English
+C			   Math
+D			   Biology
+E			   Math
+F			   Computer
+G			   Math
+H			   Math
+I		     Math
 
 QUESTION
 write  an SQL query to report all the classes that have at least five students
