@@ -1,0 +1,33 @@
+CREATING TABLE TRIANGLE
+CREATE TABLE triangle(X int,y int,z int);
+
+INSERTING VALUES INTO THE TABLE
+INSERT INTO triangle(X,y,z) VALUES(13,15,30);
+INSERT INTO triangle(X,y,z) VALUES(10,20,15);
+
+
+DISPLAYING THE TABLE
+SELECT * FROM triangle;
+-----------
+X   y   z
+-----------
+13	15	30
+10	20	15
+
+
+QUESTION
+write an SQL query to report for every three line segments weather they can form a triangle
+
+ANSWER
+SELECT *, CASE WHEN X+y>z AND y+z>X AND z+X>y THEN 'Yes'
+ELSE 'No' END AS Triangle
+FROM triangle;
+
+OUTPUT
+-----------------------
+X   y   z   Triangle
+-----------------------
+13	15	30	 No
+10	20	15	 Yes
+
+
