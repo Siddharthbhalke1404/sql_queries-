@@ -1,0 +1,42 @@
+CREATING TABLE Point
+CREATE TABLE Point(X int);
+
+INSERTING VALUES INTO THE TABLE
+INSERT INTO Point(X) VALUES(-1);
+INSERT INTO Point(X) VALUES(0);
+INSERT INTO Point(X) VALUES(2);
+
+SELECT * FROM Point;
+----
+ X
+----
+-1
+ 0
+ 2
+
+QUESTION
+Write an SQL query to report the shortest distance between any two points from the point table
+
+ANSWER
+SELECT MIN(ABS(p1.X-p2.X)) AS shortest
+FROM Point p1
+CROSS JOIN Point p2
+WHERE p1.X <> p2.X;
+
+  --      OR
+  
+SELECT MIN(ABS(p1.X-p2.X)) AS shortest
+FROM Point p1
+INNER JOIN Point p2
+WHERE p1.X < p2.X;
+
+
+OUTPUT
+--------
+shortest
+--------
+   1
+
+
+
+
