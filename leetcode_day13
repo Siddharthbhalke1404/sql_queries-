@@ -1,0 +1,50 @@
+CREATING TABLE Point
+CREATE TABLE MyNumbers(num int);
+
+INSERTING VALUES INTO THE TABLE
+INSERT INTO MyNumbers(num) VALUES(8);
+INSERT INTO MyNumbers(num) VALUES(8);
+INSERT INTO MyNumbers(num) VALUES(8);
+INSERT INTO MyNumbers(num) VALUES(1);
+INSERT INTO MyNumbers(num) VALUES(2);
+INSERT INTO MyNumbers(num) VALUES(3);
+INSERT INTO MyNumbers(num) VALUES(4);
+INSERT INTO MyNumbers(num) VALUES(5);
+INSERT INTO MyNumbers(num) VALUES(6);
+
+SELECT * FROM MyNumbers;
+-----------
+    num
+-----------
+	-1
+	8
+	8
+	8
+	1
+	2
+	3
+	4
+	5
+	6
+
+
+
+QUESTION
+Write an SQL query to report the largest single number. If there is no single number return null
+
+ANSWER
+WITH cte AS
+(SELECT num
+FROM MyNumbers
+GROUP BY num
+HAVING COUNT(num)=1)
+
+SELECT CASE WHEN COUNT(*)>0 THEN MAX(num)
+ELSE NULL END AS num
+FROM cte
+
+OUTPUT
+--------
+   num
+--------
+	6
