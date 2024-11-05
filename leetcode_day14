@@ -11,13 +11,13 @@ INSERT INTO Cinema_house(id,movie,description,rating) VALUES(5,'house card','int
 
 SELECT * FROM Cinema_house;
 ---------------------------------------------
-id     movie           description    rating
+id     movie     description    rating
 ---------------------------------------------
-1		war	   			great 3d		8.9
-2		science			friction		8.5
-3		irish			boring			6.2
-4		ice song		fantasy			8.6
-5		house card		interesting		9.1
+1		war	   			great 3d		    8.9
+2		science			friction		   8.5
+3		Irish			  boring			  6.2
+4		ice song		fantasy			  8.6
+5		house card	interesting		9.1
 
 
 
@@ -34,7 +34,7 @@ ORDER BY rating DESC;
 
 OUTPUT
 ---------------------------------------------
-id    movie         description      rating
+id    movie        description      rating
 ---------------------------------------------
-5	   house card	     interesting	    9.1
-1	   war			       great 3d	        8.9
+5	   house card	    interesting	    9.1
+1	   war			      great 3d	       8.9
