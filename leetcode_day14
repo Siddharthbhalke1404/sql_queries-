@@ -1,0 +1,40 @@
+CREATING TABLE CINEMA
+CREATE TABLE Cinema_house(id int,movie varchar(255),description varchar(255),rating float);
+
+INSERTING VALUES INTO THE TABLE
+INSERT INTO Cinema_house(id,movie,description,rating) VALUES(1,'war','great 3d',8.9);
+INSERT INTO Cinema_house(id,movie,description,rating) VALUES(2,'science','friction',8.5);
+INSERT INTO Cinema_house(id,movie,description,rating) VALUES(3,'irish','boring',6.2);
+INSERT INTO Cinema_house(id,movie,description,rating) VALUES(4,'ice song','fantasy',8.6);
+INSERT INTO Cinema_house(id,movie,description,rating) VALUES(5,'house card','interesting',9.1);
+
+
+SELECT * FROM Cinema_house;
+---------------------------------------------
+id     movie           description    rating
+---------------------------------------------
+1		war	   			great 3d		8.9
+2		science			friction		8.5
+3		irish			boring			6.2
+4		ice song		fantasy			8.6
+5		house card		interesting		9.1
+
+
+
+QUESTION
+Write a SQL query to report the movies with an odd numbered id and description that is not boring.
+Return the table in ordered to descending order by rating
+
+ANSWER
+SELECT *
+FROM Cinema_house
+WHERE id%2 <> 0
+AND description <> 'boring'
+ORDER BY rating DESC;
+
+OUTPUT
+---------------------------------------------
+id    movie         description      rating
+---------------------------------------------
+5	   house card	     interesting	    9.1
+1	   war			       great 3d	        8.9
