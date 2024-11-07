@@ -1,0 +1,36 @@
+CREATING TABLE ACTORDIRECTOR
+CREATE TABLE Actor_Director_Table(actor_id int,director_id int,timestamp int);
+
+INSERTING VALUES INTO THE TABLE
+INSERT INTO Actor_Director_Table(actor_id,director_id,timestamp) VALUES(1,1,0);
+INSERT INTO Actor_Director_Table(actor_id,director_id,timestamp) VALUES(1,1,1);
+INSERT INTO Actor_Director_Table(actor_id,director_id,timestamp) VALUES(1,1,2);
+INSERT INTO Actor_Director_Table(actor_id,director_id,timestamp) VALUES(1,2,3);
+INSERT INTO Actor_Director_Table(actor_id,director_id,timestamp) VALUES(1,2,4);
+INSERT INTO Actor_Director_Table(actor_id,director_id,timestamp) VALUES(2,1,5);
+INSERT INTO Actor_Director_Table(actor_id,director_id,timestamp) VALUES(2,1,6);
+
+SELECT * FROM Actor_Director_Table;
+actor_id   director_id    timestamp
+	1			1			0
+	1			1			1
+	1			1			2
+	1			2			3
+	1			2			4
+	2			1			5
+	2			1			6
+
+QUESTION
+Write a SQL query for a report  that provides the pairs(actor_id,director_id) where the actor has cooperated with the director at least three time
+
+ANSWER
+SELECT actor_id,director_id
+FROM Actor_Director_Table
+GROUP BY actor_id,director_id
+HAVING COUNT(timestamp) >=3;
+
+OUTPUT
+-----------------------
+ actor_id   director_id
+ ----------------------
+	1			1
