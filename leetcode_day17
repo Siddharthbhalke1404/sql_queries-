@@ -13,12 +13,12 @@ SELECT * FROM queries;
 -------------------------------------------------
 query_name	result           position  rating
 -------------------------------------------------
-	dog		 golden retriever		    1		    5
-	dog		 german shepherd			  2		    5
-	dog		 mule					          200		  1
-	cat		 shirazi					      5		    2
-	cat		 siamese					      3	    	3
-	cat		 sphynx					        7		    4
+dog		 golden retriever    1       5
+dog		 german shepherd     2	     5
+dog		 mule		     200     1
+cat		 shirazi	     5	     2
+cat		 siamese	     3	     3
+cat		 sphynx		     7       4
 
 QUESTION
 Write an SQL query to find each query_name , the quality(average of rating/postion) and poor_query_percentage(the percentage of all queries with rating less than 3)
@@ -30,6 +30,8 @@ FROM queries
 GROUP BY query_name;
 
 OUTPUT
-query_name    quality   poor_query_percentage  
-	dog			      2.50		 33.33
-	cat			      0.66		 33.33
+---------------------------------------------
+query_name    quality   poor_query_percentage
+---------------------------------------------
+dog	       2.50		 33.33
+cat	       0.66		 33.33
