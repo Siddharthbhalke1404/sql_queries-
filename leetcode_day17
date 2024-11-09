@@ -1,0 +1,35 @@
+CREATING TABLE QUERIES
+CREATE TABLE queries(query_name varchar(255),result varchar(255),position int,rating int);
+
+INSERTING VALUES INTO THE TABLE
+INSERT INTO queries(query_name,result,position,rating) VALUES('dog','golden retriever',1,5);
+INSERT INTO queries(query_name,result,position,rating) VALUES('dog','german shepherd',2,5);
+INSERT INTO queries(query_name,result,position,rating) VALUES('dog','mule',200,1);
+INSERT INTO queries(query_name,result,position,rating) VALUES('cat','shirazi',5,2);
+INSERT INTO queries(query_name,result,position,rating) VALUES('cat','siamese',3,3);
+INSERT INTO queries(query_name,result,position,rating) VALUES('cat','sphynx',7,4);
+
+SELECT * FROM queries;
+-------------------------------------------------
+query_name	result           position  rating
+-------------------------------------------------
+	dog		 golden retriever		    1		    5
+	dog		 german shepherd			  2		    5
+	dog		 mule					          200		  1
+	cat		 shirazi					      5		    2
+	cat		 siamese					      3	    	3
+	cat		 sphynx					        7		    4
+
+QUESTION
+Write an SQL query to find each query_name , the quality(average of rating/postion) and poor_query_percentage(the percentage of all queries with rating less than 3)
+
+ANSWER
+SELECT query_name, ROUND(AVG(rating/position),2) AS quality,
+ROUND(SUM(rating<3)/COUNT(*)*100,2) AS poor_query_percentage
+FROM queries
+GROUP BY query_name;
+
+OUTPUT
+query_name    quality   poor_query_percentage  
+	dog			      2.50		 33.33
+	cat			      0.66		 33.33
